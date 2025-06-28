@@ -1,7 +1,5 @@
 import { createRoot } from 'react-dom/client';
 import { StrictMode, CSSProperties, useState } from 'react';
-import clsx from 'clsx';
-
 import { Article } from './components/article/Article';
 import { ArticleParamsForm } from './components/article-params-form/ArticleParamsForm';
 import { defaultArticleState, OptionType } from './constants/articleProps';
@@ -21,15 +19,12 @@ export interface IAllOptions {
 }
 
 const App = () => {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
+	//const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const [artState, setArtState] = useState<IAllOptions>(defaultArticleState);
 
-	function toggle() {
-		setIsOpen((prev) => !prev);
-	}
 	return (
 		<main
-			className={clsx(styles.main)}
+			className={styles.main}
 			style={
 				{
 					'--font-family': artState.fontFamilyOption.value,
@@ -39,11 +34,7 @@ const App = () => {
 					'--bg-color': artState.backgroundColor.value,
 				} as CSSProperties
 			}>
-			<ArticleParamsForm
-				isOpen={isOpen}
-				onToggle={toggle}
-				saveFormData={setArtState}
-			/>
+			<ArticleParamsForm saveFormData={setArtState} />
 			<Article />
 		</main>
 	);
