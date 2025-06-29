@@ -67,7 +67,7 @@ export const ArticleParamsForm = ({ saveFormData }: ArticleParamsFormProps) => {
 
 	const ref = useRef<HTMLDivElement>(null);
 
-	// Обработчик клика вне панели кастомизаци
+	// Обработчик клика на оверлей
 	useOutsideClickClose({
 		isOpen: isMenuOpen,
 		rootRef: ref,
